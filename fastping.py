@@ -13,11 +13,11 @@ def get_hosts(fp: str):
 async def do_ping(host):
     try:
         delay = await aioping.ping(host, timeout=6) * 1000
-        print("%s response in %s ms" % (host, delay))
+        print(f"{host:15} response in {delay:.2f} ms")
     except TimeoutError:
-        print("%s Timed out" % host)
+        print(f"{host:15} Timed out")
     except OSError:
-        print("%s Timed out" % host)
+        print(f"{host:15} Timed out")
 
 
 async def f_ping(hosts):
